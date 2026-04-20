@@ -95,16 +95,6 @@ const config = () => {
         plugins: [
           ...defaultConfig.plugins,
           new InjectManifest({
-            dontCacheBustURLsMatching: /\.\w{8}\./,
-            manifestTransforms: [
-              async manifest => {
-                const newManifest = manifest.map(entry => ({
-                  ...entry,
-                  url: entry.url,
-                }));
-                return { manifest: newManifest };
-              }
-            ],
             swDest: 'sw.js',
             swSrc: join(__dirname, './src/Worker.ts'),
           }),
