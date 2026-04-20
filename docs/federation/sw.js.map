@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://module_federation/./src/Worker.ts"],"names":["self"],"mappings":"AACA,KAAK,oBAAoB,CAAG,s7CAAK,aAAa","file":"sw.js","sourcesContent":["// @ts-expect-error skipping this check\nself.__WB_MF_MFE_MANIFEST = self.__WB_MANIFEST\n"]}
