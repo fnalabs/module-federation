@@ -6,6 +6,7 @@ import type { IContainer } from '@mf-types/fnalabs_assets/Container'
 import type { ISection } from '@mf-types/fnalabs_assets/Section'
 import type { IHero } from '@mf-types/fnalabs_assets/Hero'
 
+import type { IServiceWorker } from '@mf-types/fnalabs_assets/ServiceWorker'
 import type { IAppLayout } from '@mf-types/fnalabs_assets/AppLayout'
 import type { IDirectionLayout } from '@mf-types/fnalabs_assets/DirectionLayout'
 
@@ -23,5 +24,6 @@ export const remoteHero = () => loadRemote(`${ASSETS}/Hero`) as RemoteComponent<
 export const remoteSection = () => loadRemote(`${ASSETS}/Section`) as RemoteComponent<ISection>
 
 // Custom remote components
+export const remoteServiceWorker = () => loadRemote(`${ASSETS}/ServiceWorker`) as RemoteComponent<IServiceWorker>
 export const remoteAppLayout = () => loadRemote(`${ASSETS}/AppLayout`) as RemoteComponent<IAppLayout>
 export const remoteDirectionLayout = () => loadRemote(`${ASSETS}/DirectionLayout`) as RemoteComponent<IDirectionLayout>

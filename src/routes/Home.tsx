@@ -18,14 +18,17 @@ const IconMF = lazy(remoteIconMF)
 
 const Home: FC = () => (
   <>
+    <title>FnA Labs | Federated PWAs</title>
+    <meta name="description" content="Federated PWAs project to build scalable micro-frontend applications." />
+
     <Hero color='dark' bold>
       <Container>
         <Columns vcentered>
-          <Column numericSize={6} content textPosition={['right-tablet', 'centered-mobile']}>
+          <Column content numericSize='4-desktop' numericSizeOffset='2-desktop' textPosition={['right-tablet', 'centered-mobile']}>
             <h1 className='title'>Federated PWAs</h1>
             <p className='subtitle'>A pattern to build scalable micro-frontend applications</p>
           </Column>
-          <Column numericSize={6}>
+          <Column numericSize='6-desktop'>
             <Columns mobile>
               <Column numericSize={4} numericSizeOffset={'4-mobile'}>
                 <IconMF />

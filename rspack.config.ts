@@ -1,17 +1,29 @@
 import { join } from 'path'
-import rspack from '@rspack/core'
+import {
+  DefinePlugin,
+  HotModuleReplacementPlugin,
+  HtmlRspackPlugin,
+  ProgressPlugin,
+} from '@rspack/core'
 import refreshPlugin from '@rspack/plugin-react-refresh'
+import { InjectManifest } from '@aaroon/workbox-rspack-plugin'
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack'
 import federationConfig from './federationConfig'
 
-const isDev = process.env.NODE_ENV === 'development'
+const HOST = process.env.HOST ?? 'http://localhost:3002'
+const ROUTE = process.env.ROUTE ?? '/federation'
+
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const IS_DEV = NODE_ENV === 'development'
+
 const defaultConfig = {
   entry: { main: join(__dirname, './src/index.tsx') },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
   output: {
     name: '[name].[contenthash].js',
-    path: join(__dirname, './dist/federation'),
-    publicPath: 'http://localhost:3002/federation/'
+    path: join(__dirname, `./dist${ROUTE}`),
+    publicPath: `${HOST}${ROUTE}/`,
+    clean: true
   },
   module: {
     rules: [
@@ -27,7 +39,7 @@ const defaultConfig = {
               jsc: {
                 externalHelpers: true,
                 parser: { syntax: 'typescript', tsx: true },
-                transform: { react: { runtime: 'automatic', development: isDev, refresh: isDev } },
+                transform: { react: { runtime: 'automatic', development: IS_DEV, refresh: IS_DEV } },
               },
               env: { targets: ['chrome >= 87', 'edge >= 88', 'firefox >= 78', 'safari >= 14'] },
             },
@@ -37,24 +49,29 @@ const defaultConfig = {
     ],
   },
   plugins: [
-    new rspack.ProgressPlugin({}),
-    new rspack.HtmlRspackPlugin({
+    new ProgressPlugin({}),
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'process.env.ROUTE': JSON.stringify(ROUTE),
+      'process.env.HOST': JSON.stringify(HOST),
+    }),
+    new HtmlRspackPlugin({
       template: './index.html',
       filename: 'index.html',
       inject: true,
-      publicPath: '/federation',
+      publicPath: ROUTE,
     }),
     new ModuleFederationPlugin(federationConfig),
   ],
 }
 
 const config = () => {
-  return isDev
+  return IS_DEV
     ? {
         ...defaultConfig,
         devServer: {
           port: 3002,
-          static: { directory: join(__dirname, './dist/federation') },
+          static: { directory: join(__dirname, `./dist${ROUTE}`) },
           liveReload: true,
           headers: {
             'Access-Control-Allow-Origin': '*',
@@ -63,13 +80,25 @@ const config = () => {
           },
         },
         devtool: 'eval',
-        plugins: [...defaultConfig.plugins, new rspack.HotModuleReplacementPlugin(), new refreshPlugin()],
+        plugins: [
+          ...defaultConfig.plugins,
+          new HotModuleReplacementPlugin(),
+          new refreshPlugin(),
+        ],
         watch: true,
       }
     : {
         ...defaultConfig,
+        output: { ...defaultConfig.output, path: join(__dirname, `./docs${ROUTE}`) },
         devtool: 'source-map',
         optimization: { minimize: true },
+        plugins: [
+          ...defaultConfig.plugins,
+          new InjectManifest({
+            swDest: 'sw.js',
+            swSrc: join(__dirname, './src/Worker.ts'),
+          }),
+        ],
       }
 }
 export default config

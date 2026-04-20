@@ -1,0 +1,111 @@
+{
+  "id": "module_federation",
+  "name": "module_federation",
+  "metaData": {
+    "name": "module_federation",
+    "globalName": "module_federation",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "module_federation"
+    },
+    "publicPath": "https://fnalabs.github.io/module-federation/federation/",
+    "remoteEntry": {
+      "name": "module_federation.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "pluginVersion": "2.3.0",
+    "prefetchInterface": false
+  },
+  "shared": [
+    {
+      "id": "module_federation:react-dom",
+      "name": "react-dom",
+      "version": "19.2.4",
+      "requiredVersion": "19.2.4",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "717.js",
+            "98.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "module_federation:react",
+      "name": "react",
+      "version": "19.2.4",
+      "requiredVersion": "19.2.4",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "237.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "module_federation:react-router",
+      "name": "react-router",
+      "version": "7.13.2",
+      "requiredVersion": "7.13.2",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "725.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./Routes",
+      "file": "",
+      "id": "module_federation:Routes",
+      "name": "Routes",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Routes.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    }
+  ]
+}
