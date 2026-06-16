@@ -1,13 +1,15 @@
-import type { RemoteComponent } from '@mf-types/fnalabs_assets/compiled-types/types'
-import type { IModuleFederation } from '@mf-types/fnalabs_assets/brands/ModuleFederation'
-import type { IColumn } from '@mf-types/fnalabs_assets/Column'
-import type { IColumns } from '@mf-types/fnalabs_assets/Columns'
-import type { IContainer } from '@mf-types/fnalabs_assets/Container'
-import type { ISection } from '@mf-types/fnalabs_assets/Section'
-import type { IHero } from '@mf-types/fnalabs_assets/Hero'
+import type { RemoteComponent } from '../@mf-types/fnalabs_assets/compiled-types/types'
+import type { IModuleFederation } from '../@mf-types/fnalabs_assets/brands/ModuleFederation'
+import type { IColumn } from '../@mf-types/fnalabs_assets/Column'
+import type { IColumns } from '../@mf-types/fnalabs_assets/Columns'
+import type { IContainer } from '../@mf-types/fnalabs_assets/Container'
+import type { IHero } from '../@mf-types/fnalabs_assets/Hero'
+import type { IIcon } from '../@mf-types/fnalabs_assets/Icon'
+import type { INotification } from '../@mf-types/fnalabs_assets/Notification'
+import type { ISection } from '../@mf-types/fnalabs_assets/Section'
 
-import type { IAppLayout } from '@mf-types/fnalabs_assets/AppLayout'
-import type { IDirectionLayout } from '@mf-types/fnalabs_assets/DirectionLayout'
+import type { IAppLayout } from '../@mf-types/fnalabs_assets/AppLayout'
+import type { IDirectionLayout } from '../@mf-types/fnalabs_assets/DirectionLayout'
 
 import { loadRemote } from '@module-federation/enhanced/runtime'
 import { ASSETS } from './config'
@@ -20,6 +22,8 @@ export const remoteColumn = () => loadRemote(`${ASSETS}/Column`) as RemoteCompon
 export const remoteColumns = () => loadRemote(`${ASSETS}/Columns`) as RemoteComponent<IColumns>
 export const remoteContainer = () => loadRemote(`${ASSETS}/Container`) as RemoteComponent<IContainer>
 export const remoteHero = () => loadRemote(`${ASSETS}/Hero`) as RemoteComponent<IHero>
+export const remoteIcon = () => loadRemote(`${ASSETS}/Icon`) as RemoteComponent<IIcon>
+export const remoteNotification = () => loadRemote(`${ASSETS}/Notification`) as RemoteComponent<INotification>
 export const remoteSection = () => loadRemote(`${ASSETS}/Section`) as RemoteComponent<ISection>
 
 // Custom remote components
