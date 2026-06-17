@@ -20,15 +20,56 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.3.0",
-    "prefetchInterface": false
+    "pluginVersion": "2.5.1"
   },
   "shared": [
     {
+      "id": "module_federation:react-router",
+      "name": "react-router",
+      "version": "7.17.0",
+      "requiredVersion": "7.17.0",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "431.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": [],
+      "usedExports": []
+    },
+    {
+      "id": "module_federation:react",
+      "name": "react",
+      "version": "19.2.7",
+      "requiredVersion": "19.2.7",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "237.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": [],
+      "usedExports": []
+    },
+    {
       "id": "module_federation:react-dom",
       "name": "react-dom",
-      "version": "19.2.4",
-      "requiredVersion": "19.2.4",
+      "version": "19.2.7",
+      "requiredVersion": "19.2.7",
       "singleton": true,
       "assets": {
         "js": {
@@ -43,47 +84,8 @@
           "async": []
         }
       },
-      "usedIn": []
-    },
-    {
-      "id": "module_federation:react",
-      "name": "react",
-      "version": "19.2.4",
-      "requiredVersion": "19.2.4",
-      "singleton": true,
-      "assets": {
-        "js": {
-          "sync": [
-            "237.js"
-          ],
-          "async": []
-        },
-        "css": {
-          "sync": [],
-          "async": []
-        }
-      },
-      "usedIn": []
-    },
-    {
-      "id": "module_federation:react-router",
-      "name": "react-router",
-      "version": "7.13.2",
-      "requiredVersion": "7.13.2",
-      "singleton": true,
-      "assets": {
-        "js": {
-          "sync": [
-            "725.js"
-          ],
-          "async": []
-        },
-        "css": {
-          "sync": [],
-          "async": []
-        }
-      },
-      "usedIn": []
+      "usedIn": [],
+      "usedExports": []
     }
   ],
   "remotes": [],

@@ -5,6 +5,8 @@ import {
   remoteColumns,
   remoteContainer,
   remoteHero,
+  remoteIcon,
+  remoteNotification,
   remoteSection,
   remoteIconMF,
 } from '../remotes'
@@ -13,6 +15,8 @@ const Column = lazy(remoteColumn)
 const Columns = lazy(remoteColumns)
 const Container = lazy(remoteContainer)
 const Hero = lazy(remoteHero)
+const Icon = lazy(remoteIcon)
+const Notification = lazy(remoteNotification)
 const Section = lazy(remoteSection)
 const IconMF = lazy(remoteIconMF)
 
@@ -42,6 +46,17 @@ const Home: FC = () => (
       <Container>
         <Columns>
           <Column numericSize='8-desktop' numericSizeOffset='2-desktop'>
+            <Notification color='info' light>
+              <Columns gapless>
+                <Column narrow>
+                  <Icon style='solid' name='info' size='medium' />
+                </Column>
+                <Column>
+                  <p>We will be expanding this project with more integrations, features, and detailed examples.</p>
+                </Column>
+              </Columns>
+            </Notification>
+
             <h2>Overview</h2>
             <p>The details below are a high level overview of the Federated PWA pattern of creating a federation of <Link to='https://en.wikipedia.org/wiki/Micro_frontend'>micro-frontends (MFE)</Link>. This experience is currently in "whitepaper" form to initially document the pattern. Over time, it will expand this to include more detailed examples and best practices.</p>
 

@@ -20,21 +20,19 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.3.0",
-    "prefetchInterface": false
+    "pluginVersion": "2.5.1"
   },
   "shared": [
     {
-      "id": "module_federation:react-dom",
-      "name": "react-dom",
-      "version": "19.2.4",
+      "id": "module_federation:react-router",
+      "name": "react-router",
+      "version": "7.17.0",
       "singleton": true,
-      "requiredVersion": "19.2.4",
+      "requiredVersion": "7.17.0",
       "assets": {
         "js": {
           "sync": [
-            "717.js",
-            "98.js"
+            "431.js"
           ],
           "async": []
         },
@@ -47,9 +45,9 @@
     {
       "id": "module_federation:react",
       "name": "react",
-      "version": "19.2.4",
+      "version": "19.2.7",
       "singleton": true,
-      "requiredVersion": "19.2.4",
+      "requiredVersion": "19.2.7",
       "assets": {
         "js": {
           "sync": [
@@ -64,15 +62,16 @@
       }
     },
     {
-      "id": "module_federation:react-router",
-      "name": "react-router",
-      "version": "7.13.2",
+      "id": "module_federation:react-dom",
+      "name": "react-dom",
+      "version": "19.2.7",
       "singleton": true,
-      "requiredVersion": "7.13.2",
+      "requiredVersion": "19.2.7",
       "assets": {
         "js": {
           "sync": [
-            "725.js"
+            "717.js",
+            "98.js"
           ],
           "async": []
         },
