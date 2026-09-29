@@ -10,7 +10,7 @@
     },
     "publicPath": "https://fnalabs.github.io/module-federation/federation/",
     "remoteEntry": {
-      "name": "module_federation.js",
+      "name": "module_federation.812445c8abd27ae7.js",
       "path": "",
       "type": "global"
     },
@@ -20,19 +20,19 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.6.0"
+    "pluginVersion": "2.8.0"
   },
   "shared": [
     {
       "id": "module_federation:react-router",
       "name": "react-router",
-      "version": "8.0.1",
+      "version": "8.2.0",
       "singleton": true,
-      "requiredVersion": "8.0.1",
+      "requiredVersion": "8.2.0",
       "assets": {
         "js": {
           "sync": [
-            "947.js"
+            "947.84ee89bc30537acb.js"
           ],
           "async": []
         },
@@ -45,13 +45,13 @@
     {
       "id": "module_federation:react",
       "name": "react",
-      "version": "19.2.7",
+      "version": "19.2.8",
       "singleton": true,
-      "requiredVersion": "19.2.7",
+      "requiredVersion": "19.2.8",
       "assets": {
         "js": {
           "sync": [
-            "237.js"
+            "237.43f123ea4bd1f495.js"
           ],
           "async": []
         },
@@ -64,14 +64,14 @@
     {
       "id": "module_federation:react-dom",
       "name": "react-dom",
-      "version": "19.2.7",
+      "version": "19.2.8",
       "singleton": true,
-      "requiredVersion": "19.2.7",
+      "requiredVersion": "19.2.8",
       "assets": {
         "js": {
           "sync": [
-            "717.js",
-            "98.js"
+            "717.e02da94021795745.js",
+            "98.db8fd890b7906508.js"
           ],
           "async": []
         },
@@ -90,7 +90,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Routes.js"
+            "__federation_expose_Routes.da3c77f88712bdd5.js"
           ],
           "async": []
         },
