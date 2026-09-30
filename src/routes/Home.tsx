@@ -53,6 +53,9 @@ const Home: FC = () => (
                 </Column>
                 <Column>
                   <p>We will be expanding this project with more integrations, features, and detailed examples.</p>
+                  <ul>
+                    <li>added link to <Link to="https://fnalabs.github.io/fnalabs-assets/storybook/">Storybook</Link></li>
+                  </ul>
                 </Column>
               </Columns>
             </Notification>
@@ -74,6 +77,8 @@ const Home: FC = () => (
 
             <h4>Module Federation</h4>
             <p>Starting with Module Federation, we are able to separate and segregate different vertical and horizontal concerns within the application. In this application, it draws from a shared library of atomic components. These components follow the Atomic design pattern and are built upon a custom implementation of the Bulma CSS framework. There are templates and layouts defined on top of that foundation to provide the connective tissue between product MFEs.</p>
+
+            <p>To this end, we have expanded on this layer of the solution in our live example with publishing our <Link to="https://fnalabs.github.io/fnalabs-assets/storybook/">Storybook</Link>.</p>
 
             <h4>React Router</h4>
             <p>React Router recently aligned with Remix to provide multiple modes of routing capabilities, each with a slightly different feature set and capabilities. This layer of the pattern follows the <Link to='https://www.patterns.dev/vanilla/route-based/'>Route Based Splitting</Link> pattern. Data Mode provided a clean delineation between routes, nesting complex layouts, and a separation between api interaction and presentation logic. The Routes of each MFE connect to the federation and leverage the same building blocks defined above. Each MFEs' Routes are dynamically loaded into the Host application.</p>
@@ -108,6 +113,7 @@ const Home: FC = () => (
               <li><Link to='https://reactrouter.com/start/modes#data'>https://reactrouter.com/start/modes#data</Link></li>
               <li><Link to='https://www.patterns.dev/vanilla/route-based/'>https://www.patterns.dev/vanilla/route-based/</Link></li>
               <li><Link to='https://developer.chrome.com/docs/workbox/'>https://developer.chrome.com/docs/workbox/</Link></li>
+              <li><Link to="https://fnalabs.github.io/fnalabs-assets/storybook/">https://fnalabs.github.io/fnalabs-assets/storybook/</Link></li>
             </ul>
           </Column>
         </Columns>
