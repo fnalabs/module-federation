@@ -1,4 +1,4 @@
-import React, { type FC, lazy } from 'react'
+import { type FC, lazy } from 'react'
 import { Link } from 'react-router'
 import {
   remoteColumn,
@@ -52,34 +52,59 @@ const Home: FC = () => (
                   <Icon style='solid' name='info' size='medium' />
                 </Column>
                 <Column>
-                  <p>We will be expanding this project with more integrations, features, and detailed examples.</p>
+                  <p>We've added to this project with more details on the following topics below:</p>
+                  <ul>
+                    <li>added link to <Link to="https://fnalabs.github.io/fnalabs-assets/storybook/" target='_blank' rel='noopener noreferrer'>Storybook</Link> and additional details under the <Link to="#module-federation">Module Federation</Link> section.</li>
+                  </ul>
                 </Column>
               </Columns>
             </Notification>
 
             <h2>Overview</h2>
-            <p>The details below are a high level overview of the Federated PWA pattern of creating a federation of <Link to='https://en.wikipedia.org/wiki/Micro_frontend'>micro-frontends (MFE)</Link>. This experience is currently in "whitepaper" form to initially document the pattern. Over time, it will expand this to include more detailed examples and best practices.</p>
+            <p>The details below are a high level overview of the Federated PWA pattern of creating a federation of <Link to='https://en.wikipedia.org/wiki/Micro_frontend' target='_blank' rel='noopener noreferrer'>micro-frontends (MFE)</Link>. This experience is currently in "whitepaper" form to initially document the pattern. Over time, it will expand this to include more detailed examples and best practices.</p>
 
             <h3>Request</h3>
             <p>Generally the request to build a solution like this comes from the need to manage and scale complex web applications by breaking them down into smaller, independently deployable modules. Most often this is applicable to large applications or enterprises, but even smaller teams can benefit from the modularity and scalability this pattern offers.</p>
 
             <h3>Benefits</h3>
-            <p><Link to='https://module-federation.io/'>Module Federation</Link> allows multiple teams to work on different parts of an application simultaneously, reducing development time and increasing productivity. It also enables the reuse of components across different projects, leading to a more consistent user experience and reduced duplication of effort.</p>
+            <p><Link to='https://module-federation.io/' target='_blank' rel='noopener noreferrer'>Module Federation</Link> allows multiple teams to work on different parts of an application simultaneously, reducing development time and increasing productivity. It also enables the reuse of components across different projects, leading to a more consistent user experience and reduced duplication of effort.</p>
 
             <h2>Design</h2>
             <p>This section outlines a high-level description of the pattern. It describes the main three areas of focus within the pattern to define this solution.</p>
 
-            <h3>Pattern</h3>
-            <p>It boils down to 3 main parts: starting with Module Federations underpinnings, enabling distributed <Link to='https://reactrouter.com/start/modes#data'>Data Mode</Link> in <Link to='https://reactrouter.com/'>React Router</Link>, and finally Service Workers and scopes with Workbox. Together, they create a solid platform to design and develop scalable solutions for Federated PWAs.</p>
+            <p>The areas of focus described below are demonstrated in our live example in the following projects:
+              <ul>
+                <li><Link to='https://github.com/fnalabs/fnalabs-assets' target='_blank' rel='noopener noreferrer'>FnA Labs - Assets Library MFE</Link></li>
+                <li><Link to='https://github.com/fnalabs/fnalabs-website' target='_blank' rel='noopener noreferrer'>FnA Labs - Host MFE</Link></li>
+                <li><Link to='https://github.com/fnalabs/module-federation' target='_blank' rel='noopener noreferrer'>Module Federation MFE</Link></li>
+                <li><Link to='https://github.com/fnalabs/hive-website' target='_blank' rel='noopener noreferrer'>Hive<sup>io</sup> Framework MFE</Link></li>
+              </ul>
+            </p>
 
-            <h4>Module Federation</h4>
+            <Notification color='info' light>
+              <Columns gapless>
+                <Column narrow>
+                  <Icon style='solid' name='info' size='medium' />
+                </Column>
+                <Column>
+                  <p>The pattern in our live example is one of many ways to deploy an application like this. Due to a lack of a gateway/load balancer from Github Pages, we were able to adjust the deployment strategy to achieve this solution. With more robust infrastructure, this approach could be further optimized.</p>
+                </Column>
+              </Columns>
+            </Notification>
+
+            <h3>Pattern</h3>
+            <p>It boils down to 3 main parts: starting with Module Federations underpinnings, enabling distributed <Link to='https://reactrouter.com/start/modes#data' target='_blank' rel='noopener noreferrer'>Data Mode</Link> in <Link to='https://reactrouter.com/' target='_blank' rel='noopener noreferrer'>React Router</Link>, and finally Service Workers and scopes with Workbox. Together, they create a solid platform to design and develop scalable solutions for Federated PWAs.</p>
+
+            <h4 id="module-federation">Module Federation</h4>
             <p>Starting with Module Federation, we are able to separate and segregate different vertical and horizontal concerns within the application. In this application, it draws from a shared library of atomic components. These components follow the Atomic design pattern and are built upon a custom implementation of the Bulma CSS framework. There are templates and layouts defined on top of that foundation to provide the connective tissue between product MFEs.</p>
 
+            <p>To this end, we have expanded on this layer of the solution in our live example with publishing our <Link to="https://fnalabs.github.io/fnalabs-assets/storybook/" target='_blank' rel='noopener noreferrer'>Storybook</Link>. This demonstrates the core components and templates we use to build scalable solutions. It includes unit, integration, and accessibility testing with live examples.</p>
+
             <h4>React Router</h4>
-            <p>React Router recently aligned with Remix to provide multiple modes of routing capabilities, each with a slightly different feature set and capabilities. This layer of the pattern follows the <Link to='https://www.patterns.dev/vanilla/route-based/'>Route Based Splitting</Link> pattern. Data Mode provided a clean delineation between routes, nesting complex layouts, and a separation between api interaction and presentation logic. The Routes of each MFE connect to the federation and leverage the same building blocks defined above. Each MFEs' Routes are dynamically loaded into the Host application.</p>
+            <p>React Router recently aligned with Remix to provide multiple modes of routing capabilities, each with a slightly different feature set and capabilities. This layer of the pattern follows the <Link to='https://www.patterns.dev/vanilla/route-based/' target='_blank' rel='noopener noreferrer'>Route Based Splitting</Link> pattern. Data Mode provided a clean delineation between routes, nesting complex layouts, and a separation between api interaction and presentation logic. The Routes of each MFE connect to the federation and leverage the same building blocks defined above. Each MFEs' Routes are dynamically loaded into the Host application.</p>
 
             <h4>Service Workers</h4>
-            <p>Combined with a manifest in the Host, Service Workers enable advanced caching strategies, offline support, and background data synchronization, enhancing the performance and reliability of Federated PWAs. We used <Link to='https://developer.chrome.com/docs/workbox/'>Workbox</Link> to provide the framework for Service Worker implementation. Each MFE has its own Service Worker minimally responsible for caching application assets, allowing for immediate updates when the Worker detects changes. These are scoped to their respective modules to ensure isolation and prevent conflicts.</p>
+            <p>Combined with a manifest in the Host, Service Workers enable advanced caching strategies, offline support, and background data synchronization, enhancing the performance and reliability of Federated PWAs. We used <Link to='https://developer.chrome.com/docs/workbox/' target='_blank' rel='noopener noreferrer'>Workbox</Link> to provide the framework for Service Worker implementation. Each MFE has its own Service Worker minimally responsible for caching application assets, allowing for immediate updates when the Worker detects changes. These are scoped to their respective modules to ensure isolation and prevent conflicts.</p>
 
             <h3>Dependencies</h3>
             <ul>
@@ -102,12 +127,21 @@ const Home: FC = () => (
 
             <h2>References</h2>
             <ul>
-              <li><Link to='https://en.wikipedia.org/wiki/Micro_frontend'>https://en.wikipedia.org/wiki/Micro_frontend</Link></li>
-              <li><Link to='https://module-federation.io/'>https://module-federation.io/</Link></li>
-              <li><Link to='https://reactrouter.com/'>https://reactrouter.com/</Link></li>
-              <li><Link to='https://reactrouter.com/start/modes#data'>https://reactrouter.com/start/modes#data</Link></li>
-              <li><Link to='https://www.patterns.dev/vanilla/route-based/'>https://www.patterns.dev/vanilla/route-based/</Link></li>
-              <li><Link to='https://developer.chrome.com/docs/workbox/'>https://developer.chrome.com/docs/workbox/</Link></li>
+              <li><Link to='https://en.wikipedia.org/wiki/Micro_frontend' target='_blank' rel='noopener noreferrer'>https://en.wikipedia.org/wiki/Micro_frontend</Link></li>
+              <li><Link to='https://module-federation.io/' target='_blank' rel='noopener noreferrer'>https://module-federation.io/</Link></li>
+              <li><Link to='https://reactrouter.com/' target='_blank' rel='noopener noreferrer'>https://reactrouter.com/</Link></li>
+              <li><Link to='https://reactrouter.com/start/modes#data' target='_blank' rel='noopener noreferrer'>https://reactrouter.com/start/modes#data</Link></li>
+              <li><Link to='https://www.patterns.dev/vanilla/route-based/' target='_blank' rel='noopener noreferrer'>https://www.patterns.dev/vanilla/route-based/</Link></li>
+              <li><Link to='https://developer.chrome.com/docs/workbox/' target='_blank' rel='noopener noreferrer'>https://developer.chrome.com/docs/workbox/</Link></li>
+              <li><Link to="https://fnalabs.github.io/fnalabs-assets/storybook/" target='_blank' rel='noopener noreferrer'>https://fnalabs.github.io/fnalabs-assets/storybook/</Link></li>
+            </ul>
+
+            <h2>Projects</h2>
+            <ul>
+              <li><Link to='https://github.com/fnalabs/fnalabs-assets' target='_blank' rel='noopener noreferrer'>FnA Labs - Assets Library MFE</Link></li>
+              <li><Link to='https://github.com/fnalabs/fnalabs-website' target='_blank' rel='noopener noreferrer'>FnA Labs - Host MFE</Link></li>
+              <li><Link to='https://github.com/fnalabs/module-federation' target='_blank' rel='noopener noreferrer'>Module Federation MFE</Link></li>
+              <li><Link to='https://github.com/fnalabs/hive-website' target='_blank' rel='noopener noreferrer'>Hive<sup>io</sup> Framework MFE</Link></li>
             </ul>
           </Column>
         </Columns>
